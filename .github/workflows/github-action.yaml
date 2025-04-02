@@ -1,0 +1,23 @@
+name: DevDay Github Action
+run-name: ${{ github.actor }} - Devday Github Action Test 
+on: 
+    workflow_dispatch:
+    push:
+        branches:
+        - main
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v2
+            - name: Setup .NET 9 SDK
+              uses: actions/setup-dotnet@v4
+              with:
+                dotnet-version: 9.x             
+            - name: Restore dependencies
+              run: dotnet restore
+            - name: Build Project
+              run: dotnet build
+            - name: Run Tests
+              run: dotnet test ./BookManager/BookManager.csproj --no-build --verbosity normal
