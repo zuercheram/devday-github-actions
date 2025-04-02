@@ -16,8 +16,8 @@ jobs:
               with:
                 dotnet-version: 9.x             
             - name: Restore dependencies
-              run: dotnet restore ../../GitHub.Action.DevDays/GitHub.Action.DevDays.csproj
+              run: dotnet restore ./GitHub.Action.DevDays/GitHub.Action.DevDays.csproj
             - name: Build Project
-              run: dotnet build ../../GitHub.Action.DevDays/GitHub.Action.DevDays.csproj
+              run: dotnet build ./GitHub.Action.DevDays/GitHub.Action.DevDays.csproj
             - name: Run Tests
-              run: dotnet test ../../GitHub.Action.DevDays/GitHub.Action.DevDays.csproj --no-build --verbosity normal
+              run: dotnet test ./GitHub.Action.DevDays/GitHub.Action.DevDays.csproj --no-build --verbosity normal
